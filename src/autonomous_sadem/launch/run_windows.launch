@@ -1,0 +1,7 @@
+<launch>
+        <node pkg="autonomous_sadem" name="drone_control" type="control.py" output="screen" />
+
+        <node pkg="autonomous_sadem" name="drone_joystick" type="joystick_windows.py" output="screen" />
+
+        <node pkg="autonomous_sadem" name="drone_slam" type="slam.py" output="screen" />
+</launch>
