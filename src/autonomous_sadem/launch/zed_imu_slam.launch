@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-   <arg name="ip"/>
-   <node pkg="autonomous_sadem" type="slam.py" name="slam" args="$(arg ip)" output="screen"/>
-   <node pkg="roscopter" type="imu_fetch.py" name="imu_combined"/>
-</launch>
