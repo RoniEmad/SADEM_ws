@@ -1,0 +1,33 @@
+import time
+from geometry_msgs.msg import PoseStamped
+import rospy
+
+class Slam:
+    def __init__(self):
+        self.initros()
+
+    def initros(self):
+        rospy.init_node('slam', anonymous=True)
+        self.pub = rospy.Publisher("/current_pose", PoseStamped, queue_size=10)
+        #self.rate = rospy.Rate(10)
+   
+    def run(self):
+        print("Slam started")
+        i=0
+        while not rospy.is_shutdown():
+            time.sleep(1)
+            #print("slam loop",time.monotonic())
+            pose=PoseStamped()
+            pose.pose.position.x=i
+            pose.pose.position.y=i
+            pose.pose.position.z=i
+            pose.pose.orientation.x=i
+            pose.pose.orientation.y=i
+            pose.pose.orientation.z=i
+            pose.pose.orientation.w=i
+            self.pub.publish(pose)
+            i+=1
+
+if __name__ == "__main__":
+    slam=Slam()
+    slam.run()
